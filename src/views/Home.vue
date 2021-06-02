@@ -1,18 +1,40 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Navbar />
+    <div class="container my-4">
+      <div class="d-flex justify-content-between">
+        <h3>
+          List Pasien
+        </h3>
+        <b-button variant="primary" @click="appendModalAddPasien">
+          <b-icon-plus /> Add Pasien
+        </b-button>
+      </div>
+      <Table />
+      <ModalAddPasien />
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Navbar from "../components/partials/Navbar";
+import Table from "../components/Table";
+import ModalAddPasien from "../components/AddPasien";
 
 export default {
-  name: 'Home',
+  data() {
+    return {};
+  },
+  methods: {
+    appendModalAddPasien() {
+      return this.$bvModal.show("addPasienModal");
+    },
+  },
   components: {
-    HelloWorld
-  }
-}
+    Navbar,
+    Table,
+    ModalAddPasien,
+  },
+  computed: {},
+};
 </script>
